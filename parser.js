@@ -41,7 +41,6 @@ class Parser {
 
   classDeclaration() {
     this.advance();
-    // console.log(this.current().type)
     const className = this.current().value;
     while (this.current().type != "LBRACE") {
       this.advance();
@@ -51,7 +50,7 @@ class Parser {
     while (this.current().type != "RBRACE" && this.tokens[this.index].type != "EOF") {
       methods.push(this._classMethods());
     }
-    console.log(methods);
+    // console.log(methods);
     this.advance();
     return new ClassDecl(className, methods);
   }
@@ -60,28 +59,29 @@ class Parser {
     let type = null;
     if (this.current().value == "static") {
       type = this.current().value;
-      // console.log(this.current().value)
       this.advance();
     }
     let methodName = this.current().value;
-    // console.log(methodName)
+
     this.advance();
     while (this.current().type != "LBRACE") {
-      // console.log(this.current().type)
       this.advance();
     }
+
     return new Method(methodName, type, this.blockStatement());
   }
 
   blockStatement() {
     this.advance();
-    let statements = [];
-    while (this.current().type != "RBRACE" && this.tokens[this.index + 1].type != "EOF") {
-      statements.push(this.statements());
+    // let statements = [];
+    // while (this.current().type != "RBRACE" && this.tokens[this.index].type != "EOF") {
+    //   statements.push(this.statements());
       this.advance();
-    }
+    // }
     this.advance();
-    return [this.statements];
+    return [this.expr];
   }
 }
 exports.Parser = Parser;
+
+//might want to convert to for loops than using bunch of while
