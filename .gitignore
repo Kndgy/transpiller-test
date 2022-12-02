@@ -1,1 +1,4 @@
 node_modules
+transpilled/
+index.ts
+/index.ts
