@@ -15,7 +15,7 @@ const asts = parser.parse(tokens);
 const result = new Visitor().visitStatements(asts);
 fs.writeFileSync("transpilled/cls-transpiled.js", result);
 
-// console.log("Source: ", buffer);
-// console.log("Tokens: ", tokens);
-// console.log("ASTs: ", asts);
-// console.log("Result: ", result);
+console.log("Source: ", buffer);
+console.log("Tokens: ", tokens);
+console.log("ASTs: ", asts);
+console.log("Result: ", result);
