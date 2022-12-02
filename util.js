@@ -1,5 +1,5 @@
 const operators = ["=", "+", "-", "*", "/", ">", "<", ">=", "<=", "==", "!="];
-const keywords = ["function", "class", "prototype", "static", "var", "typeof"];
+const keywords = ["class", "function", "prototype", "static", "var", "typeof"];
 
 function isOp(v) {
   for (var i = 0; i < operators.length; i++) {

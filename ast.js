@@ -16,5 +16,5 @@ class Method {
   }
 }
 
-exports.classDecl = ClassDecl;
+exports.ClassDecl = ClassDecl;
 exports.Method = Method;
