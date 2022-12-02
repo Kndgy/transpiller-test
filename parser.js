@@ -43,14 +43,15 @@ class Parser {
     this.advance();
     // console.log(this.current().type)
     const className = this.current().value;
-    while (this.current().type == "LBRACE") {
+    while (this.current().type != "LBRACE") {
       this.advance();
     }
     this.advance();
     let methods = [];
-    while (this.current().type != "RBRACE" && this.tokens[this.index + 1].type != "EOF") {
+    while (this.current().type != "RBRACE" && this.tokens[this.index].type != "EOF") {
       methods.push(this._classMethods());
     }
+    console.log(methods);
     this.advance();
     return new ClassDecl(className, methods);
   }
@@ -65,10 +66,6 @@ class Parser {
     let methodName = this.current().value;
     // console.log(methodName)
     this.advance();
-    // for (this.index; this.index < this.current().type.length; this.index++) {
-    //   console.log(this.current().type)
-    // }
-    // console.log(this.current().type.length)
     while (this.current().type != "LBRACE") {
       // console.log(this.current().type)
       this.advance();
